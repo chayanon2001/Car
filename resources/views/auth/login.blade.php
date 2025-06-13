@@ -1,19 +1,22 @@
 @extends('layouts.guest')
 
+@section('title', 'Login - Car System')
+
 @section('content')
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row w-100 justify-content-center">
         <div class="col-sm-10 col-md-5 col-lg-4">
-
-            <div class="text-center mb-2">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="max-height: 120px;">
-            </div>
-
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
+            <div class="card shadow p-4">
+                <div class="text-center mb-2">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo" style="max-height: 120px;">
                 </div>
-            @endif
+
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -58,7 +61,9 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
+    </div>
 </div>
 @endsection
